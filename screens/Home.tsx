@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, SafeAreaView, FlatList, StyleSheet } from 'react-native';
 import FocustedStatusBar from '../components/FocusedStatusBar';
 import HomeHeader from '../components/HomeHeader';
@@ -11,8 +11,14 @@ interface HomeProps {
  
 const Home: React.FC<HomeProps> = () => {
 
-    const handleSearch = () => {
+    const [nfdData, setNFTData] = useState<NTFCardData[]>(NFTData);
 
+    const handleSearch = (value: string) => {
+        if(value.length){
+            const filteredData = NFTData.filter(item => item.name.toLowerCase().includes(value.toLowerCase()));
+            filteredData.length && setNFTData(filteredData);
+        }
+        else setNFTData(NFTData);
     }
 
     return ( 
@@ -21,7 +27,7 @@ const Home: React.FC<HomeProps> = () => {
             <View style={{ flex: 1 }}>
                 <View style={styles.flatList}>
                     <FlatList 
-                        data={NFTData} 
+                        data={nfdData} 
                         renderItem={({ item }) => <NFTCard data={item}/>}
                         keyExtractor={(item) => item.id}
                         showsVerticalScrollIndicator={false}

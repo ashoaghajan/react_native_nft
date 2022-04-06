@@ -4,9 +4,10 @@ import { COLORS, FONTS, SHADOWS, SIZES } from '../constants';
 
 interface ButtonProps {
     imgUrl: any,
-    right: number,
-    top: number,
-    handlePress: any
+    right?: number,
+    top?: number,
+    left?: number,
+    handlePress?: any
 }
  
 export const CircleButton: React.FC<ButtonProps> = ({ imgUrl, handlePress, ...props }) => {

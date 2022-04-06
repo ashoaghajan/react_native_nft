@@ -1,3 +1,11 @@
+type BidItem = {
+    id: string;
+    name: string;
+    price: number;
+    image: any;
+    date: string;
+}
+
 type NTFCardData = {
     id: string;
     name: string;
@@ -5,11 +13,5 @@ type NTFCardData = {
     price: number;
     description: string;
     image: any;
-    bids: {
-        id: string;
-        name: string;
-        price: number;
-        image: any;
-        date: string;
-    }[]
+    bids: BidItem[]
 }    

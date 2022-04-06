@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TextInput, View } from 'react-native';
 import { assets, COLORS, FONTS, SIZES } from '../constants';
 
 interface HomeHeaderProps {
-    handleSearch: () => void
+    handleSearch: (value: string) => void
 }
  
 const HomeHeader: React.FC<HomeHeaderProps> = ({ handleSearch }) => {
